@@ -1,0 +1,16 @@
+
+/* navbar width responsiveness */
+@media only screen and (max-width: 600px) {
+    .navbar-width{
+        width: 85%;
+    }
+  }
+
+  @media only screen and (min-width: 600px) {
+    .navbar-width{
+        width: 75%;
+    }
+  }
+
+
+  
