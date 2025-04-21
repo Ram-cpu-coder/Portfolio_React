@@ -1,7 +1,7 @@
 body{
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 }
 .glassmophorism{
   background: rgba( 255, 255, 255, 0 );
@@ -16,12 +16,29 @@ body{
 }
 .vertical-sideBar{
   transform: rotate(-90deg);
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  position: fixed;
+  top: 50%;
+  width: 250px;
+  height: 50px;
+  left: -90px;
 }
+
 .main-width{
   width: calc(100vw-250px) !important;
 }
 .rotate-icons{
   transform: rotate(90deg);
+}
+.footer-sideBar{
+display: none;
+width: 250px;
+height: 10px;
+align-items: center;
+gap: 2px;
+margin-top: 10px;
 }
 ---------------------DROPDOWN ----------------------------------------
 /* Basic Styles */
@@ -34,7 +51,7 @@ body{
 .select {
   padding: 10px;
   font-size: 16px;
-  background-color: #fff;
+  background-color: transparent;
   color: #333;
   cursor: pointer;
   position: relative;
@@ -52,7 +69,7 @@ body{
 
 /* Dropdown Options */
 .select-options {
-  position: absolute;
+  position:fixed;
   top: 80%;
   left: 15%;
   width: 150px;
@@ -115,6 +132,12 @@ transform: translateX(100%);
 @media only screen and (max-width: 600px) {
     .navbar-width{
         width: 85%;
+    }
+    .vertical-sideBar{
+      display: none;
+    }
+    .footer-sideBar{
+      display:flex;
     }
   }
 

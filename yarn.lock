@@ -670,6 +670,11 @@ ajv@^6.12.4:
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
 
+animated-backgrounds@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/animated-backgrounds/-/animated-backgrounds-1.1.0.tgz#9c2b20fb296999dec618a2996322aa90f3381226"
+  integrity sha512-uziMR9m6WTjAvq8hVZ/l4W2liqkf5BwoQ24zjlmkU9PYWZmlZjxxH3msRz9VmD15aoo4kgxJH6ebf/f1414D0g==
+
 ansi-styles@^4.1.0:
   version "4.3.0"
   resolved "https://registry.yarnpkg.com/ansi-styles/-/ansi-styles-4.3.0.tgz#edd803628ae71c04c85ae7a0906edad34b648937"
@@ -1026,6 +1031,11 @@ globals@^16.0.0:
   version "16.0.0"
   resolved "https://registry.yarnpkg.com/globals/-/globals-16.0.0.tgz#3d7684652c5c4fbd086ec82f9448214da49382d8"
   integrity sha512-iInW14XItCXET01CQFqudPOWP2jYMl7T+QRQT+UNcR/iQncN/F0UNpgd76iFkBPgNQb4+X3LV9tLJYzwh+Gl3A==
+
+gsap@^3.12.7:
+  version "3.12.7"
+  resolved "https://registry.yarnpkg.com/gsap/-/gsap-3.12.7.tgz#1b690def901ac9b21d4909f39c2b52418154463d"
+  integrity sha512-V4GsyVamhmKefvcAKaoy0h6si0xX7ogwBoBSs2CTJwt7luW0oZzC0LhdkyuKV8PJAXr7Yaj8pMjCKD4GJ+eEMg==
 
 has-flag@^4.0.0:
   version "4.0.0"

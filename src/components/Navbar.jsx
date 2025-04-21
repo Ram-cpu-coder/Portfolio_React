@@ -32,7 +32,7 @@ const Navbar = ({ navMenu, setNavMenu }) => {
           <Language />
         </div>
         <button
-          className="border-0 text-black fs-4 bg-white"
+          className="border-0 text-black fs-4 bg-transparent"
           onClick={() => setNavMenu(!navMenu)}
         >
           {navMenu ? <IoMdClose /> : <RxHamburgerMenu />}

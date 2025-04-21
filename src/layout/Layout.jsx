@@ -16,13 +16,13 @@ const Layout = () => {
           <Navbar setNavMenu={setNavMenu} navMenu={navMenu} />
 
           <div
-            style={{ minHeight: "90vh" }}
+            style={{ minHeight: "80vh" }}
             className="d-flex justify-content-center position-relative"
           >
             {/* side bar */}
             <SideBar />
             {/* main content */}
-            <main className="main-width border">
+            <main className="" style={{ width: "75vw" }}>
               <Outlet />
             </main>
           </div>

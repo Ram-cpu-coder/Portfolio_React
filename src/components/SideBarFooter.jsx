@@ -2,11 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { link } from "../assets/socialMediaLinks";
 
-const SideBar = () => {
+const SideBarFooter = () => {
   return (
-    <div className="vertical-sideBar">
+    <div className="footer-sideBar">
       <span>Follow Me</span>
-      <hr className="w-25" />
+      <hr className="w-25 mx-2" />
       {/* icons */}
       <div className="d-flex gap-2">
         {link.map((item, index) => {
@@ -14,7 +14,7 @@ const SideBar = () => {
             <Link
               to={item.link}
               key={index}
-              className="rotate-icons text-decoration-none text-black"
+              className="text-decoration-none text-black"
             >
               {item.icon}
             </Link>
@@ -25,4 +25,4 @@ const SideBar = () => {
   );
 };
 
-export default SideBar;
+export default SideBarFooter;
