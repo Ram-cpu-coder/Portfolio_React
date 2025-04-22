@@ -14,7 +14,7 @@ const SideBar = () => {
             <Link
               to={item.link}
               key={index}
-              className="rotate-icons text-decoration-none text-black"
+              className="rotate-icons text-decoration-none"
             >
               {item.icon}
             </Link>

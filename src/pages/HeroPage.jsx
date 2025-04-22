@@ -5,16 +5,17 @@ import { AnimatedText } from "animated-backgrounds";
 const HeroPage = () => {
   return (
     <div
-      className="hero d-flex justify-content-center align-items-center"
+      className="d-flex justify-content-center align-items-center position-relative"
       style={{ minHeight: "60vh" }}
     >
+      <div className="position-absolute"></div>
       {/* left hero */}
       <div className="">
         <h1>I'm Ram Kumar Dhimal</h1>
         <h1>
-          I{" "}
+          <span>A Software Developer</span>
           {/* <AnimatedText
-            text="build web apps"
+            text=" A Software Developer"
             effect="typewriter"
             config={{
               speed: 100,
@@ -33,7 +34,7 @@ const HeroPage = () => {
               My Work
             </Link>
           </button>
-          <button className="bg-transparent">
+          <button className="bg-white">
             <Link to="/resume" className="text-decoration-none text-black">
               Resume
             </Link>

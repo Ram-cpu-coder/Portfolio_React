@@ -1,13 +1,19 @@
 import React, { useEffect } from "react";
 import "./App.css";
 import AppRoutes from "./routes/AppRoutes";
-import gsap from "gsap";
+import StarField from "./components/StarField";
 
 function App() {
   return (
-    <>
-      <AppRoutes />
-    </>
+    <div className="position-relative vh-100 d-flex justify-content-center">
+      <div className="position-absolute backgroundA">
+        {/* this is the background */}
+        {/* <StarField /> */}
+      </div>
+      <div className="position-absolute">
+        <AppRoutes />
+      </div>
+    </div>
   );
 }
 

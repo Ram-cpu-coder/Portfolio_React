@@ -3,25 +3,24 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.jsx";
-import { AnimatedBackground } from "animated-backgrounds";
 import gsap from "gsap";
 
 // Root-level mouse tracking logic
 function GlobalCursor() {
   useEffect(() => {
     const pointer = document.querySelector("#cursor");
-
+    const pointer1 = document.querySelector("#cursor1");
     // Variables to store the mouse coordinates
     let mouseX = 0;
     let mouseY = 0;
 
-    // This function will run continuously to update the cursor position
+    // running the function continuously to update the cursor position
     const updateCursor = () => {
       gsap.to(pointer, {
-        x: mouseX, // Adjust the cursor position based on the mouse X
-        y: mouseY, // Adjust the cursor position based on the mouse Y
-        duration: 0.1, // Short duration to make it responsive
-        // ease: "power2.out",
+        x: mouseX,
+        y: mouseY,
+        duration: 0,
+        ease: "power2.out",
       });
 
       // Request the next animation frame
@@ -36,7 +35,6 @@ function GlobalCursor() {
 
     // Start the cursor update loop
     requestAnimationFrame(updateCursor);
-
     // Add event listener for mousemove
     document.body.addEventListener("mousemove", handleMouseMove);
 
@@ -51,20 +49,20 @@ function GlobalCursor() {
       id="cursor"
       style={{
         zIndex: 99999,
-        height: "20px",
-        width: "20px",
+        height: "10px",
+        width: "10px",
         borderRadius: "50%",
         background: "black",
         position: "fixed",
-        pointerEvents: "none", // Ensures the cursor does not interfere with other elements
+        pointerEvents: "none",
       }}
     ></div>
   );
 }
 
-// Rendering the entire app with the custom cursor component
 createRoot(document.getElementById("root")).render(
   <React.StrictMode>
+    {/* // this is the cursor following the actual pointer globally */}
     <GlobalCursor />
     <App />
   </React.StrictMode>

@@ -6,16 +6,12 @@ const SideBarFooter = () => {
   return (
     <div className="footer-sideBar">
       <span>Follow Me</span>
-      <hr className="w-25 mx-2" />
+      <hr className="w-25 my-2" />
       {/* icons */}
       <div className="d-flex gap-2">
         {link.map((item, index) => {
           return (
-            <Link
-              to={item.link}
-              key={index}
-              className="text-decoration-none text-black"
-            >
+            <Link to={item.link} key={index} className="text-decoration-none">
               {item.icon}
             </Link>
           );

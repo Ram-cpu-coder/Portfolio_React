@@ -2,22 +2,13 @@ import React, { useEffect, useState } from "react";
 import { IoMdClose } from "react-icons/io";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { Link } from "react-router-dom";
-import Menu from "./Menu";
 import Language from "./Language";
 
 const Navbar = ({ navMenu, setNavMenu }) => {
-  if (navMenu) {
-    return (
-      <div className="position-absolute z-3">
-        <Menu navMenu={navMenu} setNavMenu={setNavMenu} />
-      </div>
-    );
-  }
-
   return (
     <div
-      className="d-flex justify-content-center glassmophorism position-sticky z-3"
-      style={{ top: 0 }}
+      className="d-flex justify-content-center glassmophorism position-sticky"
+      style={{ top: 0, width: "100vw", zIndex: "9999999" }}
     >
       <div
         className="d-flex justify-content-between align-items-center navbar-width pb-1"
@@ -35,7 +26,7 @@ const Navbar = ({ navMenu, setNavMenu }) => {
           className="border-0 text-black fs-4 bg-transparent"
           onClick={() => setNavMenu(!navMenu)}
         >
-          {navMenu ? <IoMdClose /> : <RxHamburgerMenu />}
+          {navMenu ? <IoMdClose /> : <RxHamburgerMenu className="text-black" />}
         </button>
       </div>
     </div>

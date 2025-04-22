@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@react-three/drei": "^10.0.6",
+    "@react-three/fiber": "^9.1.2",
     "animated-backgrounds": "^1.1.0",
     "bootstrap": "^5.3.5",
     "gsap": "^3.12.7",
