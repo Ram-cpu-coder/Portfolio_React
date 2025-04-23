@@ -8,7 +8,7 @@ const Navbar = ({ navMenu, setNavMenu }) => {
   return (
     <div
       className="d-flex justify-content-center glassmophorism position-sticky"
-      style={{ top: 0, width: "100vw", zIndex: "9999999" }}
+      style={{ top: 0, width: "100vw", zIndex: "2" }}
     >
       <div
         className="d-flex justify-content-between align-items-center navbar-width pb-1"
