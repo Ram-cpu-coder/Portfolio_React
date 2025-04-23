@@ -5,7 +5,7 @@ const About = () => {
     <div className="d-flex justify-content-center align-items-center flex-column">
       <div className="aboutBackground position-relative">
         <h1
-          className="position-absolute text-white"
+          className="position-absolute text-black"
           style={{ top: "30%", left: "10%" }}
         >
           About Me

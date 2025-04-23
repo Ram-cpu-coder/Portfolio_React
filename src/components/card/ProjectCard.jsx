@@ -3,9 +3,9 @@ import React from "react";
 const ProjectCard = ({ item, index }) => {
   const even = index % 2;
   return (
-    <div className="w-100">
+    <div className="w-100 container">
       <div
-        className={`d-flex justify-content-center align-items-center row border p-2 rounded ${
+        className={`d-flex justify-content-center align-items-center projectCard row border p-2 rounded ${
           even ? "flex-sm-row-reverse flex-column" : "flex-sm-row flex-column"
         }`}
       >

@@ -17,10 +17,17 @@ function GlobalCursor() {
     // running the function continuously to update the cursor position
     const updateCursor = () => {
       gsap.to(pointer, {
-        x: mouseX,
-        y: mouseY,
+        x: mouseX - 15 + "px",
+        y: mouseY - 15 + "px",
         duration: 0,
-        ease: "power2.out",
+        delay: 0.4,
+        // ease: "power2.out",
+      });
+      gsap.to(pointer1, {
+        x: mouseX - 2.5 + "px",
+        y: mouseY - 2.5 + "px",
+        duration: 0,
+        delay: 0.1,
       });
 
       // Request the next animation frame
@@ -45,18 +52,35 @@ function GlobalCursor() {
   }, []);
 
   return (
-    <div
-      id="cursor"
-      style={{
-        zIndex: 99999,
-        height: "10px",
-        width: "10px",
-        borderRadius: "50%",
-        background: "black",
-        position: "fixed",
-        pointerEvents: "none",
-      }}
-    ></div>
+    <>
+      <div
+        id="cursor"
+        style={{
+          zIndex: 99999,
+          height: "30px",
+          width: "30px",
+          borderRadius: "50%",
+          border: "1px solid black",
+          background: "transparent",
+          position: "fixed",
+          pointerEvents: "none",
+          boxShadow: "1px 15px 40px -8px rgba(0,0,0,1)",
+        }}
+      ></div>
+      <span
+        id="cursor1"
+        style={{
+          height: "5px",
+          width: "5px",
+          zIndex: 999991,
+          borderRadius: "50%",
+          border: "1px solid black",
+          background: "black",
+          position: "fixed",
+          pointerEvents: "none",
+        }}
+      ></span>
+    </>
   );
 }
 
