@@ -1,9 +1,27 @@
-import React from "react";
+import gsap from "gsap";
+import React, { useEffect, useRef } from "react";
 
 const ProjectCard = ({ item, index }) => {
   const even = index % 2;
+  const cardRef = useRef(null); // Create a ref
+
+  useEffect(() => {
+    if (cardRef.current) {
+      gsap.fromTo(
+        cardRef.current,
+        { y: 200, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          delay: index * 0.3,
+          duration: 0.8,
+          ease: "power3.out",
+        }
+      );
+    }
+  }, []); // Run
   return (
-    <div className="w-100 container">
+    <div className="w-100 container" ref={cardRef}>
       <div
         className={`d-flex justify-content-center align-items-center projectCard row border p-2 rounded ${
           even ? "flex-sm-row-reverse flex-column" : "flex-sm-row flex-column"

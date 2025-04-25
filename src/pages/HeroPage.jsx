@@ -60,17 +60,17 @@ const HeroPage = () => {
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed,
           delectus!
         </p>
-        <div className="d-flex gap-2 justify-content-center">
-          <button className="bg-black" ref={btnRef1}>
-            <Link to="/projects" className="text-decoration-none text-white">
+        <div className="d-flex gap-4 justify-content-center">
+          <Link to="/projects" className="">
+            <button className="button rounded" ref={btnRef1}>
               My Work
-            </Link>
-          </button>
-          <button className="bg-white" ref={btnRef2}>
-            <Link to="/resume" className="text-decoration-none text-black">
+            </button>
+          </Link>
+          <Link to="/resume" className="">
+            <button className="button-white rounded" ref={btnRef2}>
               Resume
-            </Link>
-          </button>
+            </button>
+          </Link>
         </div>
       </div>
     </div>

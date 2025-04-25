@@ -4,6 +4,8 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.jsx";
 import gsap from "gsap";
+import { Provider } from "react-redux";
+import store from "./store/reduxStore.js";
 
 // Root-level mouse tracking logic
 function GlobalCursor() {
@@ -20,14 +22,14 @@ function GlobalCursor() {
         x: mouseX - 15 + "px",
         y: mouseY - 15 + "px",
         duration: 0,
-        delay: 0.4,
+        delay: 0.2,
         // ease: "power2.out",
       });
       gsap.to(pointer1, {
         x: mouseX - 2.5 + "px",
         y: mouseY - 2.5 + "px",
         duration: 0,
-        delay: 0.1,
+        delay: 0,
       });
 
       // Request the next animation frame
@@ -88,6 +90,8 @@ createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     {/* // this is the cursor following the actual pointer globally */}
     <GlobalCursor />
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>
 );

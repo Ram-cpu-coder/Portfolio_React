@@ -125,8 +125,30 @@ margin-top: 10px;
 }
 
 /* ------------------------------------------------------------- */
-
-
+.button{
+  background: black;
+  padding: 4px 8px;
+  text-decoration: none;
+  color: white;
+  border: 1px solid black;
+}
+.button:hover{
+  background: white;
+  color: black;
+  border-radius: 0;
+}
+.button-white{
+  border:1px solid black !important;
+  background: white;
+  padding: 4px 8px;
+  text-decoration: none;
+  color: black;
+}
+.button-white:hover{
+  background: black;
+  color: white;
+  border: none;
+}
 .menu-animation{
   animation: slideIn 0.5s ease-in-out;
 }
@@ -162,14 +184,11 @@ transition: transform 0.3s ease;
 }
 
 /* ------------------------project----------------------- */
-.aboutBackground{
-  /* background-image: url("/about.png"); */
-  background-position: top;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  height: 400px;
-  width: 50vw;
+.graph-img{
+object-fit: contain;
+object-position: center;
+width: auto;
+height: auto;
 }
 @media only screen and (max-width: 1150px) {
   .outletWidth{

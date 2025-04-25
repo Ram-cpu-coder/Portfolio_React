@@ -4,9 +4,9 @@ import BlogCard from "../components/card/BlogCard";
 
 const Blog = () => {
   return (
-    <div className="w-100 ">
+    <div className="w-100">
       <h1 className="row pb-3">Latest Blogs</h1>
-      <div className="row d-flex flex-column gap-4">
+      <div className="row d-flex flex-column gap-3">
         {blog.map((item, index) => {
           return <BlogCard item={item} key={index} index={index} />;
         })}

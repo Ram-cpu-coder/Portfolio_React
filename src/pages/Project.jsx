@@ -6,7 +6,7 @@ const Project = () => {
   return (
     <div className="w-100 ">
       <h1 className="row pb-3">Projects</h1>
-      <div className="d-flex flex-column gap-4">
+      <div className="d-flex flex-column gap-4 row">
         {projectsList.map((item, index) => {
           return <ProjectCard item={item} key={index} index={index} />;
         })}
