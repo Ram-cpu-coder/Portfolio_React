@@ -9,7 +9,7 @@ const About = () => {
   console.log(contributions, 111);
   return (
     <div className="d-flex justify-content-center align-items-center flex-column">
-      <div className="aboutBackground row w-100 mb-4">
+      <div className="row mb-4 p-2">
         <h1 className="text-black">About Me</h1>
 
         <p className="">
@@ -24,12 +24,12 @@ const About = () => {
         </p>
       </div>
 
-      <div className="bg-white p-4 rounded shadow-sm mb-5 w-100">
-        <h2 className="h4 fw-bold mb-3">My GitHub Contributions</h2>
-        <GithubContributionGraph username="ram-cpu-coder" />
+      <div className="bg-white rounded shadow-sm mb-5 w-100 row p-2">
+        <h2 className="h4 fw-bold mb-3 row">My GitHub Contributions</h2>
+        <GithubContributionGraph />
 
-        <h2 className="h4 fw-bold mb-3">At the moment</h2>
-        <p className="text-secondary">
+        <h2 className="h4 fw-bold mt-3 row">At the moment</h2>
+        <p className="text-secondary p-0">
           I’m currently developing a <strong>Library Management System</strong>{" "}
           using <strong>React.js</strong>,<strong>Node.js</strong>,{" "}
           <strong>Express.js</strong>, and <strong>MongoDB</strong>. It allows

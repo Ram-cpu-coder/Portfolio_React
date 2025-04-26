@@ -14,7 +14,7 @@ body{
   height: 100vh;
 }
 .outletWidth{
-  width: 50vw;
+  width: 60vw;
   padding: 15px;
 }
 .glassmophorism{
@@ -184,15 +184,48 @@ transition: transform 0.3s ease;
 }
 
 /* ------------------------project----------------------- */
-.graph-img{
-object-fit: contain;
-object-position: center;
-width: auto;
-height: auto;
+/* --------------------------github-graph-------------------------------- */
+.contribution-graph {
+  display: grid;
+  grid-template-columns: repeat(52, 1fr); /* weeks */
+  grid-template-rows: repeat(7, 1fr);     /* days */
+  gap: 2px;
+  overflow-x: scroll;
 }
+
+.day-box {
+  width: 15px;
+  height: 15px;
+  border-radius: 3px;
+  position: relative;
+  background-color: #ebedf0;
+}
+
+.tooltip {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.75);
+  color: #fff;
+  padding: 5px;
+  font-size: 12px;
+  border-radius: 3px;
+  visibility: hidden;
+  white-space: nowrap;
+  z-index: 10;
+}
+
+.day-box:hover .tooltip {
+  visibility: visible;
+  top: -30px;
+  left: 20px;
+}
+
+
+
+
+/* --------------------------github-graph-------------------------------- */
 @media only screen and (max-width: 1150px) {
   .outletWidth{
-    width: 85%;
+    max-width: 100%;
   }
 }
 
@@ -211,6 +244,9 @@ height: auto;
     }
     .project-img-container{
       width: 100%;
+    }
+    .outletWidth{
+      width: 95vw;
     }
   }
 

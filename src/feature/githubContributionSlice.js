@@ -8,7 +8,7 @@ const githubContributionSlice = createSlice({
     name: "githubContribution",
     initialState,
     reducers: {
-        setContributions: (state, action) => { state.contributions = action.payload; },
+        setContributions: (state, action) => { state.contributions = action.payload },
     }
 })
 export const { setContributions } = githubContributionSlice.actions;

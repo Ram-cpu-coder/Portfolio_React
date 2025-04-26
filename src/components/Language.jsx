@@ -1,22 +1,22 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { MdOutlineArrowDropDown } from "react-icons/md";
 import i18n from "../i18n";
 
 const Language = () => {
   const [selectedOption, setSelectedOption] = useState("");
-  const options = ["English", "नेपाली"];
-  const savedLng = localStorage.getItem("i18nextLng" || "English");
+  const options = ["en", "नेपाली"];
 
   const handleOptionClick = (lng) => {
     setSelectedOption(lng);
     i18n.changeLanguage(lng);
     localStorage.setItem("i18nextLng", lng);
   };
+  const savedLng = localStorage.getItem("i18nextLng");
 
   return (
     <div className="select-wrapper">
       <div className="select">
-        {selectedOption || savedLng} <MdOutlineArrowDropDown />
+        {savedLng || selectedOption} <MdOutlineArrowDropDown />
       </div>
       <div className="select-options">
         {options.map((lng, index) => (

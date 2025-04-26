@@ -5,7 +5,7 @@ import gsap from "gsap";
 import { useTranslation } from "react-i18next";
 
 const HeroPage = () => {
-  const { t, i18n } = useTranslation();
+  const { t, ready } = useTranslation();
   const nameRef = useRef(null);
   const greetingRef = useRef(null);
   const roleRef = useRef(null);
@@ -49,7 +49,14 @@ const HeroPage = () => {
       { x: 0, opacity: 1, duration: 2, delay: 1.4, ease: "power3.out" }
     );
   }, []);
-
+  // if (!ready) {
+  //   console.log(ready, "ready");
+  //   return (
+  //     <div className="100-vh d-flex justify-content-center align-items-center">
+  //       Loading ...
+  //     </div>
+  //   );
+  // }
   return (
     <div
       className="d-flex justify-content-center align-items-center position-relative"

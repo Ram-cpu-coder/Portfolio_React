@@ -9,7 +9,7 @@ function App() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(contributionFromDbAction());
-    console.log("ran");
+    localStorage.setItem("i18nextLng", "en");
   }, []);
   return (
     <div className="position-relative vh-100 d-flex justify-content-center">

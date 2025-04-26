@@ -12,7 +12,7 @@ const Layout = () => {
       {navMenu ? (
         <Menu setNavMenu={setNavMenu} navMenu={navMenu} />
       ) : (
-        <div className="d-flex flex-column" style={{ minHeight: "100vh" }}>
+        <div className="d-flex flex-column">
           <Navbar setNavMenu={setNavMenu} navMenu={navMenu} />
 
           <div
