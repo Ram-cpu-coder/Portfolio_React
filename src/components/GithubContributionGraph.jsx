@@ -53,7 +53,9 @@ const GithubContributionGraph = () => {
         return "#196127";
     }
   };
-
+  if (!contributions) {
+    return <div>Loading ... </div>;
+  }
   return (
     <div
       style={{ maxWidth: "100%" }}
