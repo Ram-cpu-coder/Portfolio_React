@@ -8,7 +8,6 @@ export const contributionFromDbAction = () => async (dispatch) => {
     toast.promise(pending, {
         pending: "Loading ... "
     })
-    const { status, data } = await pending;
-    setContributions(data)
-    console.log(data)
+    const { data } = await pending;
+    dispatch(setContributions(data.data))
 }
