@@ -8,7 +8,7 @@ const savedLng = localStorage.getItem("i18nextLng")
 i18n.use(Backend).use(initReactI18next).use(LanguageDetector).init({
     fallBackLng: "en",
     lng: savedLng,
-    debug: true,
+    // debug: true,
 }, {
     backend: {
         loadPath: "/locales/{{lng}}/translation.json"

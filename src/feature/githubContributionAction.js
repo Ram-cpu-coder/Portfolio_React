@@ -4,7 +4,7 @@ import { setContributions } from "./githubContributionSlice";
 
 export const contributionFromDbAction = () => async (dispatch) => {
     const pending = contributionFromDbAxios()
-    console.log("pending")
+    // console.log("pending")
     toast.promise(pending, {
         pending: "Loading ... "
     })

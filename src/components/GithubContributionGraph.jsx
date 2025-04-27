@@ -5,39 +5,31 @@ const GithubContributionGraph = () => {
   const { contributions } = useSelector(
     (state) => state.githubContributionInfo
   );
-  const [days, setDays] = useState([]);
-
-  const getDayOfYear = (date) => {
-    const start = new Date(date.getFullYear(), 0, 0);
-    const diff = date - start;
-    const oneDay = 1000 * 60 * 60 * 24;
-    return Math.floor(diff / oneDay);
-  };
+  const data = [...contributions];
+  const [weeks, setWeeks] = useState([]);
 
   useEffect(() => {
-    const reversed = [...contributions].reverse(); // oldest → latest
-    const daysInYear = Array.from({ length: 52 }, () => Array(7).fill(0));
+    data.sort((a, b) => new Date(a.date) - new Date(b.date));
+    data.map((item) => console.log(item.date, "sadkjlfh"));
+    const weeksData = [];
 
-    reversed.forEach((contribution) => {
-      const date = new Date(contribution.date);
-      const dayOfYear = getDayOfYear(date);
-      const weekOfYear = Math.floor(dayOfYear / 7);
-      const dayOfWeek = date.getDay();
+    let currentWeek = new Array(7).fill(0);
 
-      if (
-        weekOfYear < 52 &&
-        weekOfYear >= 0 &&
-        dayOfWeek < 7 &&
-        dayOfWeek >= 0
-      ) {
-        daysInYear[weekOfYear][dayOfWeek] = contribution.count;
+    data.forEach((item, index) => {
+      const date = new Date(item.date);
+      const dayOfWeek = date.getDay(); // 0 = Sunday, 1 = Monday...
+
+      currentWeek[dayOfWeek] = item.count;
+      if (dayOfWeek === 6 || index === data.length - 1) {
+        weeksData.push(currentWeek);
+        currentWeek = new Array(7).fill(0);
       }
     });
 
-    setDays(daysInYear);
+    setWeeks(weeksData);
   }, [contributions]);
 
-  const maxCount = Math.max(...contributions.map((c) => c.count || 0));
+  const maxCount = Math.max(...data.map((c) => c.count || 0));
 
   const getColorForContributions = (count) => {
     if (count === 0) return "#ebedf0";
@@ -53,35 +45,25 @@ const GithubContributionGraph = () => {
         return "#196127";
     }
   };
-  if (!contributions) {
-    return <div>Loading ... </div>;
-  }
+
   return (
-    <div
-      style={{ maxWidth: "100%" }}
-      className="d-flex justify-content-center align-items-center border rounded"
-    >
-      <div className="contribution-graph">
-        {days.map((week, weekIndex) =>
-          week.map((count, dayIndex) => (
-            <div
-              key={`${weekIndex}-${dayIndex}`}
-              className="day-box"
-              style={{ backgroundColor: getColorForContributions(count) }}
-            >
-              <div className="tooltip">
-                Date:{" "}
-                {new Date(
-                  2024,
-                  0,
-                  weekIndex * 7 + dayIndex + 1
-                ).toLocaleDateString()}
-                <br />
-                Contributions: {count}
-              </div>
+    <div style={{ overflowX: "auto" }}>
+      <div className="graph-container">
+        {/* Graph */}
+        <div className="graph-grid ">
+          {weeks.map((week, weekIndex) => (
+            <div key={weekIndex} className="week-column">
+              {week.map((count, dayIndex) => (
+                <div
+                  key={dayIndex}
+                  className="day-box"
+                  title={`Contributions: ${count}`}
+                  style={{ backgroundColor: getColorForContributions(count) }}
+                />
+              ))}
             </div>
-          ))
-        )}
+          ))}
+        </div>
       </div>
     </div>
   );
