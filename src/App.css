@@ -176,50 +176,104 @@ margin-top: 10px;
   perspective: 600px;
 }
 .projectCard:hover{
-/* scale: 1.03; */
-transform: scale3d(1.02, 1.02, 1);
-transform-origin: center;
-transform-style: preserve-3d;
-transition: transform 0.3s ease;
+  transform: scale(1.02); /* Simpler scaling */
+  transition: transform 0.3s ease;
 }
 
 /* ------------------------project----------------------- */
 /* --------------------------github-graph-------------------------------- */
-.contribution-graph {
-  display: grid;
-  grid-template-columns: repeat(52, 1fr); /* weeks */
-  grid-template-rows: repeat(7, 1fr);     /* days */
-  gap: 2px;
-  overflow-x: scroll;
+/* .contribution-graph {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  overflow-x: auto;
+  padding: 10px;
+  width: 100%;
+  max-width: 100%;
+}
+
+.day-box {
+  width: 12px;
+  height: 12px;
+  margin: 2px;
+  background-color: #ebedf0;
+  position: relative;
+  border-radius: 2px;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.day-box:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+.tooltip {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 4px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%; 
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 10px;
+}
+
+/* @media (max-width: 768px) {
+  .day-box {
+    width: 8px;
+    height: 8px;
+    margin: 1px;
+  }
+
+  .tooltip {
+    width: 100px;
+    font-size: 8px;
+  }
+} */ */
+
+.graph-container {
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* align-items: flex-start; */
+
+  border: 5px solid black;
+}
+.day-label {
+  width: 20px;
+  height: 20px;
+  font-size: 10px;
+  text-align: center;
+  margin-right: 4px;
+  color: #555;
+}
+
+.graph-grid {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  padding: 2px 0;
+}
+
+.week-column {
+  display: flex;
+  flex-direction: column;
+  margin-right: 4px;
 }
 
 .day-box {
   width: 15px;
   height: 15px;
+  margin-bottom: 4px;
   border-radius: 3px;
-  position: relative;
-  background-color: #ebedf0;
 }
-
-.tooltip {
-  position: absolute;
-  background: rgba(0, 0, 0, 0.75);
-  color: #fff;
-  padding: 5px;
-  font-size: 12px;
-  border-radius: 3px;
-  visibility: hidden;
-  white-space: nowrap;
-  z-index: 10;
-}
-
-.day-box:hover .tooltip {
-  visibility: visible;
-  top: -30px;
-  left: 20px;
-}
-
-
 
 
 /* --------------------------github-graph-------------------------------- */

@@ -6,7 +6,6 @@ const About = () => {
   const { contributions } = useSelector(
     (state) => state.githubContributionInfo
   );
-  console.log(contributions, 111);
   return (
     <div className="d-flex justify-content-center align-items-center flex-column">
       <div className="row mb-4 p-2">

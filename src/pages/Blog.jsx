@@ -6,7 +6,7 @@ const Blog = () => {
   return (
     <div className="w-100">
       <h1 className="row pb-3">Latest Blogs</h1>
-      <div className="row d-flex flex-column gap-3">
+      <div className="row">
         {blog.map((item, index) => {
           return <BlogCard item={item} key={index} index={index} />;
         })}
