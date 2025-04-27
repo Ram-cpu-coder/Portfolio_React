@@ -25,7 +25,11 @@ const About = () => {
 
       <div className="bg-white rounded shadow-sm mb-5 w-100 row p-2">
         <h2 className="h4 fw-bold mb-3 row">My GitHub Contributions</h2>
-        <GithubContributionGraph />
+        {!contributions ? (
+  <div>Loading Contributions...</div>
+) : (
+  <GithubContributionGraph />
+)}
 
         <h2 className="h4 fw-bold mt-3 row">At the moment</h2>
         <p className="text-secondary p-0">
