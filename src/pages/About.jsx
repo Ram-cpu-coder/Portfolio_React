@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import GithubContributionGraph from "../components/GithubContributionGraph";
 import { useSelector } from "react-redux";
 
@@ -6,6 +6,9 @@ const About = () => {
   const { contributions } = useSelector(
     (state) => state.githubContributionInfo
   );
+
+  const [isLoading, setIsLoading] = useState(false);
+
   return (
     <div className="d-flex justify-content-center align-items-center flex-column">
       <div className="row mb-4 p-2">
@@ -25,11 +28,11 @@ const About = () => {
 
       <div className="bg-white rounded shadow-sm mb-5 w-100 row p-2">
         <h2 className="h4 fw-bold mb-3 row">My GitHub Contributions</h2>
-        {!contributions ? (
-  <div>Loading Contributions...</div>
-) : (
-  <GithubContributionGraph />
-)}
+        {/* {isLoading ? (
+          <div>Loading...</div>
+        ) : ( */}
+        <GithubContributionGraph />
+        {/* )} */}
 
         <h2 className="h4 fw-bold mt-3 row">At the moment</h2>
         <p className="text-secondary p-0">
