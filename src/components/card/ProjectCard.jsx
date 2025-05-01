@@ -21,7 +21,7 @@ const ProjectCard = ({ item, index }) => {
     }
   }, []); // Run
   return (
-    <div className="w-100 container" ref={cardRef}>
+    <div className="w-100 container mb-3" ref={cardRef}>
       <div
         className={`d-flex justify-content-center align-items-center projectCard row border p-2 rounded ${
           even ? "flex-sm-row-reverse flex-column" : "flex-sm-row flex-column"

@@ -49,14 +49,6 @@ const HeroPage = () => {
       { x: 0, opacity: 1, duration: 2, delay: 1.4, ease: "power3.out" }
     );
   }, []);
-  // if (!ready) {
-  //   console.log(ready, "ready");
-  //   return (
-  //     <div className="100-vh d-flex justify-content-center align-items-center">
-  //       Loading ...
-  //     </div>
-  //   );
-  // }
   return (
     <div
       className="d-flex justify-content-center align-items-center position-relative"
@@ -70,14 +62,14 @@ const HeroPage = () => {
         <h2 ref={roleRef} className="text-center">
           {t("line2")}
           {/* <AnimatedText
-            text=" A Software Developer"
+            text={t("line2") || ""}
             effect="typewriter"
             config={{
               speed: 100,
               loop: true,
               delay: 1000,
-            }}
-          /> */}
+            }} */}
+          {/* /> */}
         </h2>
         <p className="py-2 text-center" ref={descRef}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed,
