@@ -23,16 +23,16 @@ const BlogCard = ({ item, index }) => {
   }, []); // Run
   return (
     <div
-      className="col-12 col-md-12 col-lg-6 container pb-4"
+      className="col-12 col-md-12 col-lg-6 container"
       ref={cardRef}
-      style={{ height: "auto" }}
+      style={{ height: "auto", padding: "5px" }}
     >
-      <div
-        className={`projectCard border p-2 rounded`}
-        style={{ height: "100%" }}
-      >
+      <div className={`projectCard`} style={{ height: "100%" }}>
         {/* <img className="border col-sm-5 col-12" src={img} alt={title} /> */}
-        <div className="d-flex flex-column col-12" style={{ height: "100%" }}>
+        <div
+          className="d-flex flex-column col-12 rounded border py-3 px-2"
+          style={{ height: "100%" }}
+        >
           <strong>{title}</strong>
           <p>{date}</p>
           <p>{description.slice(0, 200)}...</p>

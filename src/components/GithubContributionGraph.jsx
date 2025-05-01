@@ -1,23 +1,27 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { contributions } from "../../public/data/contributions";
 
 const GithubContributionGraph = () => {
-  const { contributions } = useSelector(
-    (state) => state.githubContributionInfo
-  );
-  const data = [...contributions];
+  // const { contributions } = useSelector(
+  //   (state) => state.githubContributionInfo
+  // );
+
   const [weeks, setWeeks] = useState([]);
+  const [maxCount, setMaxCount] = useState(0);
 
   useEffect(() => {
-    data.sort((a, b) => new Date(a.date) - new Date(b.date));
-    data.map((item) => console.log(item.date, "sadkjlfh"));
-    const weeksData = [];
+    if (!contributions || contributions.length === 0) return;
 
+    const data = [...contributions].sort(
+      (a, b) => new Date(a.date) - new Date(b.date)
+    );
+
+    const weeksData = [];
     let currentWeek = new Array(7).fill(0);
 
     data.forEach((item, index) => {
       const date = new Date(item.date);
-      const dayOfWeek = date.getDay(); // 0 = Sunday, 1 = Monday...
+      const dayOfWeek = date.getDay();
 
       currentWeek[dayOfWeek] = item.count;
       if (dayOfWeek === 6 || index === data.length - 1) {
@@ -27,9 +31,8 @@ const GithubContributionGraph = () => {
     });
 
     setWeeks(weeksData);
+    setMaxCount(Math.max(...data.map((c) => c.count || 0)));
   }, [contributions]);
-
-  const maxCount = Math.max(...data.map((c) => c.count || 0));
 
   const getColorForContributions = (count) => {
     if (count === 0) return "#ebedf0";
@@ -46,11 +49,14 @@ const GithubContributionGraph = () => {
     }
   };
 
+  if (!contributions || contributions.length === 0) {
+    return <p>Loading contribution data...</p>;
+  }
+
   return (
-    <div style={{ overflowX: "auto" }}>
+    <div style={{ overflowX: "scroll" }}>
       <div className="graph-container">
-        {/* Graph */}
-        <div className="graph-grid ">
+        <div className="graph-grid">
           {weeks.map((week, weekIndex) => (
             <div key={weekIndex} className="week-column">
               {week.map((count, dayIndex) => (

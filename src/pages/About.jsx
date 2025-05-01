@@ -1,14 +1,10 @@
 import React, { useEffect, useState } from "react";
 import GithubContributionGraph from "../components/GithubContributionGraph";
-import { useSelector } from "react-redux";
+import WorkExperience from "../components/WorkExperience";
+import Education from "../components/Education";
+import Skills from "../components/Skills";
 
 const About = () => {
-  const { contributions } = useSelector(
-    (state) => state.githubContributionInfo
-  );
-
-  const [isLoading, setIsLoading] = useState(false);
-
   return (
     <div className="d-flex justify-content-center align-items-center flex-column">
       <div className="row mb-4 p-2">
@@ -25,43 +21,43 @@ const About = () => {
           turning complex problems into elegant solutions.
         </p>
       </div>
-
+      <WorkExperience />
+      <Education />
+      <Skills />
       <div className="bg-white rounded shadow-sm mb-5 w-100 row p-2">
-        <h2 className="h4 fw-bold mb-3 row">My GitHub Contributions</h2>
-        {/* {isLoading ? (
-          <div>Loading...</div>
-        ) : ( */}
+        <h2 className="h4 fw-bold mb-3 row">GitHub Commits</h2>
+
         <GithubContributionGraph />
-        {/* )} */}
 
         <h2 className="h4 fw-bold mt-3 row">At the moment</h2>
         <p className="text-secondary p-0">
-          I’m currently developing a <strong>Library Management System</strong>{" "}
-          using <strong>React.js</strong>,<strong>Node.js</strong>,{" "}
+          I’m currently developing a <strong>E-commerce Web App</strong> using{" "}
+          <strong>React.js</strong>,<strong>Node.js</strong>,{" "}
           <strong>Express.js</strong>, and <strong>MongoDB</strong>. It allows
-          admins and students to manage book records, registration, and login
-          with <strong>JWT authentication</strong>, secure password hashing via{" "}
-          <strong>Bcrypt</strong>, and <strong>email verification</strong> using
-          Nodemailer and Maulter.
+          admins and customers to manage the orders, make orders, register, and
+          login with <strong>JWT authentication</strong>, secure password
+          hashing via <strong>Bcrypt</strong>, and{" "}
+          <strong>email verification</strong> using Nodemailer and Multer.
         </p>
-        <p className="mt-3">
+        <p className="mt-3 d-flex flex-column row">
+          View Source on GitHub
           <a
-            href="https://github.com/ramdc20/Library_Management_System"
+            href="https://github.com/ishworj/e-commerce-fe"
             target="_blank"
             rel="noopener noreferrer"
-            className="link-primary"
+            className="link-primary row"
           >
-            View Source on GitHub
+            Frontend
+          </a>
+          <a
+            href="https://github.com/ishworj/e-commerce-be"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="link-primary row"
+          >
+            Backend
           </a>
           <br />
-          <a
-            href="https://library-management-system-dc.vercel.app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="link-primary"
-          >
-            Live Demo
-          </a>
         </p>
       </div>
     </div>

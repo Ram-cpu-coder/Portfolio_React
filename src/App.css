@@ -15,7 +15,7 @@ body{
 }
 .outletWidth{
   width: 60vw;
-  padding: 15px;
+  /* padding: 15px; */
 }
 .glassmophorism{
   background: rgba( 255, 255, 255, 0 );
@@ -182,69 +182,10 @@ margin-top: 10px;
 
 /* ------------------------project----------------------- */
 /* --------------------------github-graph-------------------------------- */
-/* .contribution-graph {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  overflow-x: auto;
-  padding: 10px;
-  width: 100%;
-  max-width: 100%;
-}
 
-.day-box {
-  width: 12px;
-  height: 12px;
-  margin: 2px;
-  background-color: #ebedf0;
-  position: relative;
-  border-radius: 2px;
-  flex-shrink: 0;
-  cursor: pointer;
-}
-
-.day-box:hover .tooltip {
-  visibility: visible;
-  opacity: 1;
-}
-
-.tooltip {
-  visibility: hidden;
-  width: 120px;
-  background-color: black;
-  color: #fff;
-  text-align: center;
-  border-radius: 4px;
-  padding: 5px;
-  position: absolute;
-  z-index: 1;
-  bottom: 125%; 
-  left: 50%;
-  transform: translateX(-50%);
-  opacity: 0;
-  transition: opacity 0.3s;
-  font-size: 10px;
-}
-
-/* @media (max-width: 768px) {
-  .day-box {
-    width: 8px;
-    height: 8px;
-    margin: 1px;
-  }
-
-  .tooltip {
-    width: 100px;
-    font-size: 8px;
-  }
-} */ */
-
-.graph-container {
-  /* display: flex; */
-  /* flex-direction: column; */
-  /* align-items: flex-start; */
-
-  border: 5px solid black;
+.graph-container{
+  width: auto;
+  margin: 0 auto;
 }
 .day-label {
   width: 20px;
@@ -265,7 +206,7 @@ margin-top: 10px;
 .week-column {
   display: flex;
   flex-direction: column;
-  margin-right: 4px;
+  margin: 0 4px;
 }
 
 .day-box {
