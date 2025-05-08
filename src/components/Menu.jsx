@@ -1,18 +1,20 @@
 import gsap from "gsap";
 import React, { useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import { IoMdClose } from "react-icons/io";
 import { Link } from "react-router-dom";
 
 const Menu = ({ setNavMenu, navMenu }) => {
+  const { t } = useTranslation("navbar");
   const handleOnClose = () => {
     setNavMenu(false);
   };
   const links = [
-    { name: "Home", link: "/" },
-    { name: "Works", link: "/projects" },
-    { name: "Blogs", link: "/blog" },
-    { name: "About Me", link: "/about" },
-    { name: "Contact Me", link: "/contact" },
+    { name: t("Home"), link: "/" },
+    { name: t("Works"), link: "/projects" },
+    { name: t("Blogs"), link: "/blog" },
+    { name: t("About Me"), link: "/about" },
+    { name: t("Contact Me"), link: "/contact" },
   ];
   const closeButtonRef = useRef(null);
   useEffect(() => {

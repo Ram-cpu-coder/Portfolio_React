@@ -13,13 +13,11 @@ function App() {
   }, []);
   return (
     <div className="position-relative vh-100 d-flex justify-content-center">
-      <div className="position-absolute backgroundA">
+      <div className="position-absolute background">
         {/* this is the background */}
         {/* <StarField /> */}
       </div>
-      <div className="position-absolute">
-        <AppRoutes />
-      </div>
+      <AppRoutes />
     </div>
   );
 }

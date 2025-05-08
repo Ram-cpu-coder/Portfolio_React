@@ -3,8 +3,10 @@ import { IoMdClose } from "react-icons/io";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { Link } from "react-router-dom";
 import Language from "./Language";
+import { useTranslation } from "react-i18next";
 
 const Navbar = ({ navMenu, setNavMenu }) => {
+  const { t } = useTranslation("navbar");
   return (
     <div
       className="d-flex justify-content-center glassmophorism position-sticky"
@@ -16,7 +18,7 @@ const Navbar = ({ navMenu, setNavMenu }) => {
       >
         <div className="d-flex align-items-center">
           <Link to="/" className="text-decoration-none text-black fs-1 ">
-            Ram
+            {t("logo")}
           </Link>
           <hr className="vertical-hr m-auto" />
           {/* <span className="text-decoration-none text-black fs-3">Language</span> */}
