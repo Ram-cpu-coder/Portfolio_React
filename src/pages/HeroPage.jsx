@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AnimatedText } from "animated-backgrounds";
 import gsap from "gsap";
 import { useTranslation } from "react-i18next";
@@ -12,6 +12,8 @@ const HeroPage = () => {
   const descRef = useRef(null);
   const btnRef1 = useRef(null);
   const btnRef2 = useRef(null);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const animateElement = (ref, options) => {
@@ -72,8 +74,7 @@ const HeroPage = () => {
           {/* /> */}
         </h2>
         <p className="py-2 text-center" ref={descRef}>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed,
-          delectus!
+          {t("line3")}
         </p>
         <div className="d-flex gap-4 justify-content-center">
           <Link to="/projects" className="">
@@ -81,11 +82,11 @@ const HeroPage = () => {
               {t("btn1")}
             </button>
           </Link>
-          <Link to="/resume" className="">
+          <a href="./Resume.pdf" className="">
             <button className="button-white rounded" ref={btnRef2}>
               {t("btn2")}
             </button>
-          </Link>
+          </a>
         </div>
       </div>
     </div>

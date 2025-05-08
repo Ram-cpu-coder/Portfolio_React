@@ -172,7 +172,7 @@ margin-top: 10px;
   object-position: top;
   object-fit: cover;
 }
-.container{
+.container1{
   perspective: 600px;
 }
 .projectCard:hover{
