@@ -2,13 +2,48 @@
   --breakpoint-sm: 760px;
 }
 
-body{
+#tsparticles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1; /* Ensure particles are behind the content */
+}
+canvas {
+  width: 100vw !important;
+  height: 100vh !important;
+  display: block !important;
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  z-index: -1 !important;
+}
+
+
+body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  background: white;
-  color: black;
+  background: rgba(0, 0, 0, 0.7); /* Dark transparent background */
+  color: white; /* Adjust text color for better contrast */
 }
+
+.app-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+.app-content {
+  position: relative;
+  z-index: 1; /* Above the background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
 .backgroundA{
   width: 100vw;
   height: 100vh;
