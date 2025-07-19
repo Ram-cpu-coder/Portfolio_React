@@ -1,34 +1,40 @@
 import React, { useState } from "react";
+import { Outlet } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { Link, Outlet } from "react-router-dom";
 import Menu from "../components/Menu";
 import SideBar from "../components/SideBar";
 
 const Layout = () => {
   const [navMenu, setNavMenu] = useState(false);
-  return (
-    <div className="">
-      {navMenu ? (
-        <Menu setNavMenu={setNavMenu} navMenu={navMenu} />
-      ) : (
-        <div className="d-flex flex-column">
-          <Navbar setNavMenu={setNavMenu} navMenu={navMenu} />
 
-          <div
-            style={{ minHeight: "80vh" }}
-            className="d-flex justify-content-center position-relative"
-          >
-            {/* side bar */}
+  return (
+    <div className="d-flex flex-column" style={{ minHeight: "100vh" }}>
+      <Navbar setNavMenu={setNavMenu} navMenu={navMenu} />
+
+      {navMenu && <Menu setNavMenu={setNavMenu} navMenu={navMenu} />}
+
+      {!navMenu && (
+        <div className="d-flex flex-grow-1 position-relative">
+          <div className="d-none d-md-block">
             <SideBar />
-            {/* main content */}
-            <main className="outletWidth">
-              <Outlet />
-            </main>
           </div>
-          <Footer />
+
+          <main
+            className="outletWidth flex-grow-1 "
+            style={{
+              width: "100vw",
+              maxWidth: "100vw",
+              padding: "1rem",
+              marginBottom: "100px",
+            }}
+          >
+            <Outlet />
+          </main>
         </div>
       )}
+
+      {!navMenu && <Footer />}
     </div>
   );
 };

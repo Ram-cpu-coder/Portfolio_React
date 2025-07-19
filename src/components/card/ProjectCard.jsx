@@ -1,81 +1,134 @@
-import gsap from "gsap";
 import React, { useEffect, useRef } from "react";
+import gsap from "gsap";
 
 const ProjectCard = ({ item, index }) => {
-  const even = index % 2;
-  const cardRef = useRef(null); // Create a ref
+  const cardRef = useRef(null);
+  const isEven = index % 2 === 0;
 
   useEffect(() => {
     if (cardRef.current) {
       gsap.fromTo(
         cardRef.current,
-        { y: 200, opacity: 0 },
+        { opacity: 0, y: 50 },
         {
-          y: 0,
           opacity: 1,
-          delay: index * 0.3,
+          y: 0,
           duration: 0.8,
+          delay: index * 0.2,
           ease: "power3.out",
         }
       );
     }
-  }, []); // Run
+  }, [index]);
+
   return (
-    <div className="w-100 container mb-3" ref={cardRef}>
+    <div
+      ref={cardRef}
+      className="container mb-5"
+      style={{
+        borderRadius: "12px",
+        boxShadow: "0 10px 25px rgba(0, 0, 0, 0.08)",
+        overflow: "hidden",
+        transition: "transform 0.3s ease, box-shadow 0.3s ease",
+      }}
+    >
       <div
-        className={`d-flex justify-content-center align-items-center projectCard row border p-2 rounded ${
-          even ? "flex-sm-row-reverse flex-column" : "flex-sm-row flex-column"
+        className={`row align-items-center flex-column flex-md-row ${
+          isEven ? "" : "flex-md-row-reverse"
         }`}
       >
-        <div
-          className="col-sm-6 col-12 p-2"
-          style={{
-            textAlign: even ? "right" : "left",
-          }}
-        >
-          <h2 className="text-dark">{item.title}</h2>
-          <div className="bg-primary text-white rounded px-3 py-2">
+        {/* Text Section */}
+        <div className="col-md-6 p-4">
+          <h2 className="fw-bold mb-3">{item.title}</h2>
+          <p
+            className="mb-3"
+            style={{
+              background: "#0d6efd",
+              color: "#fff",
+              borderRadius: "6px",
+              padding: "0.75rem 1rem",
+            }}
+          >
             {item.description}
-          </div>
-          <p className="mb-0 pt-2">
-            {item.tech.map((techItem, i) => (
-              <span key={i}>{techItem} | </span>
+          </p>
+
+          {item.role && (
+            <p className="mb-2">
+              <strong>My Role:</strong> {item.role}
+            </p>
+          )}
+
+          <p className="mb-3 text-muted">
+            <strong>Tech Stack:</strong>{" "}
+            {item.tech.map((tech, i) => (
+              <span key={i}>
+                {tech}
+                {i < item.tech.length - 1 ? " | " : ""}
+              </span>
             ))}
           </p>
-          <div className="d-flex flex-column pt-2">
-            <a href={item.live} className="text-decoration-none text-black">
-              🔗 Live
-            </a>
-            <div className="pt-1">
-              <p className="mb-1">Repo:</p>
-              <div
-                className={`d-flex gap-3 flex-wrap`}
-                style={{ justifyContent: even ? "end" : "start" }}
+
+          <div
+            className={`d-flex flex-column align-items-${
+              isEven ? "start" : "end"
+            }`}
+          >
+            {item.live && (
+              <a
+                href={item.live}
+                target="_blank"
+                rel="noreferrer"
+                className="btn btn-primary mb-3"
+                style={{ width: "fit-content" }}
               >
+                🔗 Live Demo
+              </a>
+            )}
+
+            <p className="mb-1 fw-semibold">Repository Links:</p>
+            <div
+              className={`d-flex flex-wrap gap-2 justify-content-${
+                isEven ? "start" : "end"
+              }`}
+            >
+              {item.githubFE && (
                 <a
                   href={item.githubFE}
-                  className="text-decoration-none text-black"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn btn-outline-secondary btn-sm"
                 >
-                  🖥️ FrontEnd
+                  🖥️ Frontend
                 </a>
+              )}
+              {item.githubBE && (
                 <a
                   href={item.githubBE}
-                  className="text-decoration-none text-black"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn btn-outline-secondary btn-sm"
                 >
-                  🛠️ BackEnd
+                  🛠️ Backend
                 </a>
-              </div>
+              )}
             </div>
           </div>
         </div>
-        <img
-          src={item.img}
-          alt=""
-          className="rounded col-sm-6 col-12 p-2"
-          style={{
-            height: "300px",
-          }}
-        />
+
+        {/* Image Section */}
+        <div className="col-md-6 text-center">
+          <img
+            src={item.img}
+            alt={item.title}
+            className="img-fluid"
+            style={{
+              borderRadius: "0",
+              width: "100%",
+              maxHeight: "350px",
+              objectFit: "cover",
+            }}
+          />
+        </div>
       </div>
     </div>
   );

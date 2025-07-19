@@ -1,21 +1,16 @@
-import React, { useEffect, useMemo, useState } from "react";
-import Particles, { initParticlesEngine } from "@tsparticles/react";
+import React, { useMemo, useState, useEffect } from "react";
+import Particles from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 
 const ParticlesBackground = (props) => {
   const [particleCount, setParticleCount] = useState(50);
-  const [init, setInit] = useState(false);
 
-  useEffect(() => {
-    initParticlesEngine(async (engine) => {
-      await loadSlim(engine);
-    }).then(() => {
-      setInit(true);
-    });
-  }, []);
+  const initParticles = async (engine) => {
+    await loadSlim(engine);
+  };
 
   const particlesLoaded = (container) => {
-    console.log(container);
+    console.log("Particles loaded:", container);
   };
 
   useEffect(() => {
@@ -24,7 +19,6 @@ const ParticlesBackground = (props) => {
     };
 
     window.addEventListener("click", handlePageClick);
-
     return () => {
       window.removeEventListener("click", handlePageClick);
     };
@@ -61,13 +55,18 @@ const ParticlesBackground = (props) => {
       },
       particles: {
         color: {
-          value: "#FFFFFF",
+          value: "black",
+        },
+        shadow: {
+          enable: true,
+          color: "rgba(0,0,0,0.2)",
+          blur: 3,
         },
         links: {
-          color: "#FFFFFF",
+          color: "black",
           distance: 150,
           enable: true,
-          opacity: 0.3,
+          opacity: 0.6,
           width: 1,
         },
         move: {
@@ -93,7 +92,7 @@ const ParticlesBackground = (props) => {
           type: "circle",
         },
         size: {
-          value: { min: 1, max: 3 },
+          value: { min: 2, max: 4 },
         },
       },
       detectRetina: true,
@@ -101,7 +100,14 @@ const ParticlesBackground = (props) => {
     [particleCount]
   );
 
-  return <Particles id={props.id} init={particlesLoaded} options={options} />;
+  return (
+    <Particles
+      id={props.id}
+      init={initParticles}
+      loaded={particlesLoaded}
+      options={options}
+    />
+  );
 };
 
 export default ParticlesBackground;
