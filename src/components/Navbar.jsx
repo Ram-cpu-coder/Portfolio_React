@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { IoMdClose } from "react-icons/io";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { Link } from "react-router-dom";
@@ -7,31 +7,32 @@ import { useTranslation } from "react-i18next";
 
 const Navbar = ({ navMenu, setNavMenu }) => {
   const { t } = useTranslation("navbar");
+
   return (
-    <div
-      className="d-flex justify-content-center glassmophorism position-sticky"
-      style={{ top: 0, width: "100vw", zIndex: "2" }}
-    >
+    <nav className="w-100 glassmophorism" style={{ height: "80px" }}>
       <div
-        className="d-flex justify-content-between align-items-center navbar-width pb-1"
-        style={{ height: "100px" }}
+        className="navbar-width d-flex justify-content-between align-items-center mx-auto px-3"
+        style={{ height: "100%" }}
       >
-        <div className="d-flex align-items-center">
-          <Link to="/" className="text-decoration-none text-black fs-1 ">
+        {/* Logo + Language */}
+        <div className="d-flex align-items-center gap-3">
+          <Link to="/" className="text-decoration-none fs-2 fw-bold text-dark">
             {t("logo")}
           </Link>
-          <hr className="vertical-hr m-auto" />
-          {/* <span className="text-decoration-none text-black fs-3">Language</span> */}
+          <div className="vr mx-2" />
           <Language />
         </div>
+
+        {/* Menu Button */}
         <button
-          className="border-0 text-black fs-4 bg-transparent"
+          className="border-0 bg-transparent fs-3 d-flex align-items-center"
           onClick={() => setNavMenu(!navMenu)}
+          aria-label="Toggle navigation menu"
         >
-          {navMenu ? <IoMdClose /> : <RxHamburgerMenu className="text-black" />}
+          {navMenu ? <IoMdClose /> : <RxHamburgerMenu />}
         </button>
       </div>
-    </div>
+    </nav>
   );
 };
 

@@ -1,95 +1,91 @@
 import React, { useEffect, useRef } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { AnimatedText } from "animated-backgrounds";
+import { Link } from "react-router-dom";
 import gsap from "gsap";
 import { useTranslation } from "react-i18next";
 
 const HeroPage = () => {
-  const { t, ready } = useTranslation();
-  const nameRef = useRef(null);
+  const { t } = useTranslation();
+
   const greetingRef = useRef(null);
+  const nameRef = useRef(null);
   const roleRef = useRef(null);
   const descRef = useRef(null);
-  const btnRef1 = useRef(null);
-  const btnRef2 = useRef(null);
-
-  const navigate = useNavigate();
+  const buttonsRef = useRef([]);
 
   useEffect(() => {
-    const animateElement = (ref, options) => {
-      gsap.fromTo(
-        ref.current,
-        { opacity: 0, ...options.from },
-        { opacity: 1, duration: 2, ease: "power3.out", ...options.to }
+    const tl = gsap.timeline({
+      defaults: { ease: "power3.out", duration: 1.2 },
+    });
+
+    tl.fromTo(greetingRef.current, { opacity: 0, y: -50 }, { opacity: 1, y: 0 })
+      .fromTo(
+        nameRef.current,
+        { opacity: 0, y: -30 },
+        { opacity: 1, y: 0 },
+        "-=0.8"
+      )
+      .fromTo(
+        roleRef.current,
+        { opacity: 0, y: -20 },
+        { opacity: 1, y: 0 },
+        "-=0.8"
+      )
+      .fromTo(
+        descRef.current,
+        { opacity: 0, y: 10 },
+        { opacity: 1, y: 0 },
+        "-=0.6"
+      )
+      .fromTo(
+        buttonsRef.current,
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, stagger: 0.2 },
+        "-=0.5"
       );
-    };
-
-    animateElement(nameRef, { to: { delay: 0.2 } });
-    animateElement(roleRef, { to: { delay: 0.6 } });
-    animateElement(descRef, { to: { delay: 1 } });
-
-    gsap.fromTo(
-      greetingRef.current,
-      {
-        opacity: 0,
-        scale: 2,
-      },
-      {
-        opacity: 1,
-        duration: 0.5,
-        scale: 1,
-      }
-    );
-    gsap.fromTo(
-      btnRef1.current,
-      { opacity: 0, x: -100 },
-      { x: 0, opacity: 1, duration: 2, delay: 1.4, ease: "power3.out" }
-    );
-    gsap.fromTo(
-      btnRef2.current,
-      { opacity: 0, x: 100 },
-      { x: 0, opacity: 1, duration: 2, delay: 1.4, ease: "power3.out" }
-    );
   }, []);
+
   return (
-    <div
-      className="d-flex justify-content-center align-items-center position-relative"
-      style={{ minHeight: "60vh" }}
+    <section
+      className="hero d-flex justify-content-center align-items-center text-center"
+      style={{ minHeight: "70vh", padding: "2rem" }}
     >
-      <div>
-        <div ref={nameRef} className="text-center">
-          <h1 ref={greetingRef}>{t("greeting")}</h1>
-          <h1>{t("line1")}</h1>
-        </div>
-        <h2 ref={roleRef} className="text-center">
+      <div className="hero-content">
+        <h1 ref={greetingRef} className="mb-2">
+          {t("greeting")}
+        </h1>
+        <h1 ref={nameRef} className="mb-3">
+          {t("line1")}
+        </h1>
+
+        <h2 ref={roleRef} className="mb-4">
           {t("line2")}
-          {/* <AnimatedText
-            text={t("line2") || ""}
-            effect="typewriter"
-            config={{
-              speed: 100,
-              loop: true,
-              delay: 1000,
-            }} */}
-          {/* /> */}
         </h2>
-        <p className="py-2 text-center" ref={descRef}>
+
+        <p ref={descRef} className="mb-4 px-2 px-md-5">
           {t("line3")}
         </p>
-        <div className="d-flex gap-4 justify-content-center">
-          <Link to="/projects" className="">
-            <button className="button rounded" ref={btnRef1}>
+
+        <div className="d-flex gap-3 justify-content-center flex-wrap">
+          <Link to="/projects">
+            <button
+              className="button rounded"
+              ref={(el) => (buttonsRef.current[0] = el)}
+            >
               {t("btn1")}
             </button>
           </Link>
-          <a href="./Resume.pdf" className="">
-            <button className="button-white rounded" ref={btnRef2}>
+
+          <a href="./Resume.pdf" target="_blank" rel="noopener noreferrer">
+            <button
+              className="button-white rounded"
+              ref={(el) => (buttonsRef.current[1] = el)}
+            >
               {t("btn2")}
             </button>
           </a>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
