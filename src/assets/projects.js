@@ -1,5 +1,14 @@
 export const projectsList = [
     {
+        title: "E-commerce Web App",
+        githubFE: "https://github.com/Ram-cpu-coder/e-commerce-fe.git",
+        githubBE: "https://github.com/Ram-cpu-coder/e-commerce-be.git",
+        live: "https://e-commerce-fe-sage.vercel.app/",
+        tech: ["Redux", "ReactJs", "Node js", "Recharts", "Bootstrap"],
+        description: "A fast, modern eCommerce web app designed to deliver a seamless shopping experience — complete with intuitive navigation, secure checkout, real-time inventory, and mobile-first design. Built to scale, optimized for conversions.",
+        img: "./E-commerce.png"
+    },
+    {
         title: "Library Management System (LMS)",
         githubFE: "https://github.com/Ram-cpu-coder/libraryManagementSystem-fe",
         githubBE: "https://github.com/Ram-cpu-coder/librarymanagementsystem-be",

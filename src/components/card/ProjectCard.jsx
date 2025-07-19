@@ -58,12 +58,12 @@ const ProjectCard = ({ item, index }) => {
             </p>
           )}
 
-          <p className="mb-3 text-muted">
-            <strong>Tech Stack:</strong>{" "}
+          <p className="mb-3 text-muted gap-1 d-flex">
+            {/* <strong>Tech Stack:</strong>{" "} */}
             {item.tech.map((tech, i) => (
-              <span key={i}>
+              <span key={i} className="badge bg-dark p-2">
                 {tech}
-                {i < item.tech.length - 1 ? " | " : ""}
+                {/* {i < item.tech.length - 1 ? " | " : ""} */}
               </span>
             ))}
           </p>
