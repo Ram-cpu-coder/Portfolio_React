@@ -2,8 +2,15 @@ import React from "react";
 
 const WorkExperience = () => {
   return (
-    <div className="row w-100 p-2">
-      <h2 className="h4 fw-bold mb-3 row">Work Experience</h2>
+    <div className="timeline-list">
+      <div>
+        <strong>Full-stack project builder</strong>
+        <span>React, Node.js, Express, MongoDB</span>
+      </div>
+      <div>
+        <strong>Product workflows</strong>
+        <span>Auth, checkout, dashboards, file uploads, email flows</span>
+      </div>
     </div>
   );
 };

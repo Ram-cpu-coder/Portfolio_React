@@ -4,20 +4,21 @@ import BlogCard from "../components/card/BlogCard";
 
 const Blog = () => {
   return (
-    <div className="container py-5">
-      <div className="row mb-5 text-center">
-        <div className="col">
-          <h1 className="fw-bold display-4">Latest Blogs</h1>
-          <p className="text-muted fs-5">Insights, stories & updates</p>
-        </div>
-      </div>
+    <main className="az-page">
+      <header className="az-section-head">
+        <h1>writing</h1>
+        <p>
+          Notes on building product flows, backend features, dashboards, uploads,
+          and the small front-end decisions that make apps feel complete.
+        </p>
+      </header>
 
-      <div className="row">
+      <section className="az-writing-list">
         {blog.map((item, index) => (
-          <BlogCard key={index} item={item} index={index} />
+          <BlogCard key={item.title} item={item} index={index} />
         ))}
-      </div>
-    </div>
+      </section>
+    </main>
   );
 };
 

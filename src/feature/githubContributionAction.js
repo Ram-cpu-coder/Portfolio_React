@@ -8,6 +8,11 @@ export const contributionFromDbAction = () => async (dispatch) => {
     toast.promise(pending, {
         pending: "Loading ... "
     })
-    const { data } = await pending;
+    const { data, status } = await pending;
+
+    if (status === "error" || !data?.data) {
+        return;
+    }
+
     dispatch(setContributions(data.data))
 }

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { MdOutlineArrowDropDown } from "react-icons/md";
 import i18n from "../i18n";
 
