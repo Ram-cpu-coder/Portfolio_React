@@ -1,26 +1,24 @@
 import React from "react";
 import { projectsList } from "../assets/projects";
 import ProjectCard from "../components/card/ProjectCard";
-import Layout from "../layout/Layout";
 
 const Project = () => {
   return (
-    <div className="container">
-      <div className="row mb-4">
-        <div className="col-12 text-center">
-          <h1 className="fw-bold">My Projects</h1>
-          <p className="text-muted">
-            A showcase of what I've built — design, code, and ideas.
-          </p>
-        </div>
-      </div>
+    <main className="az-page">
+      <header className="az-section-head">
+        <h1>work</h1>
+        <p>
+          A few full-stack projects where I shaped the interface, backend flow,
+          and the product details that make each app usable.
+        </p>
+      </header>
 
-      <div className="">
+      <section className="az-work-list">
         {projectsList.map((item, index) => (
-          <ProjectCard key={index} item={item} index={index} />
+          <ProjectCard key={item.title} item={item} index={index} />
         ))}
-      </div>
-    </div>
+      </section>
+    </main>
   );
 };
 

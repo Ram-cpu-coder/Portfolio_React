@@ -7,7 +7,7 @@ export const apiProcessor = async ({ method, url }) => {
             url
         })
         return response
-    } catch (error) {
+    } catch {
         return {
             status: "error",
         }
